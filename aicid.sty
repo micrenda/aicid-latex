@@ -1,0 +1,57 @@
+%%
+%% aicid.sty -- Lightweight AICID profile links for LaTeX.
+%%
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{aicid}[2026/06/13 v0.1 Lightweight AICID profile links]
+
+\RequirePackage{graphicx}
+
+\newif\ifaicid@hyperref
+\newcommand*\aicid@baseurl{https://aicid.net/agents/}
+\newcommand*\aicid@logo{aicid-logo-blue}
+\newcommand*\aicid@height{1.75ex}
+
+\DeclareOption{blue}{\renewcommand*\aicid@logo{aicid-logo-blue}}
+\DeclareOption{green}{\renewcommand*\aicid@logo{aicid-logo-green}}
+\ProcessOptions\relax
+
+\makeatletter
+\AtBeginDocument{%
+  \@ifpackageloaded{hyperref}{\aicid@hyperreftrue}{\aicid@hyperreffalse}%
+}
+
+\newcommand*\aicidsetheight[1]{\renewcommand*\aicid@height{#1}}
+\newcommand*\aicidsetbaseurl[1]{\renewcommand*\aicid@baseurl{#1}}
+
+\newcommand*\aicid@href[2]{%
+  \ifaicid@hyperref
+    \href{#1}{#2}%
+  \else
+    #2%
+  \fi
+}
+
+\DeclareRobustCommand{\aicidicon}{%
+  \begingroup
+    \raisebox{-0.12ex}{\includegraphics[height=\aicid@height]{\aicid@logo}}%
+  \endgroup
+}
+
+\DeclareRobustCommand{\aicid}[1]{%
+  \aicid@href{\aicid@baseurl#1}{\aicidicon}%
+}
+
+\DeclareRobustCommand{\aicidid}[1]{%
+  \aicid@href{\aicid@baseurl#1}{#1}%
+}
+
+\DeclareRobustCommand{\aicidfull}[1]{%
+  \aicid@href{\aicid@baseurl#1}{\aicidicon\,#1}%
+}
+
+\DeclareRobustCommand{\aicidauthor}[2]{%
+  #1\,\aicid{#2}%
+}
+\makeatother
+
+\endinput

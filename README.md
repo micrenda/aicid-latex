@@ -9,8 +9,7 @@ The package is intentionally lightweight. At document build time it depends on
 ## Files
 
 - `aicid.sty` - LaTeX package.
-- `aicid-logo-blue.pdf` - default icon for paper/PDF use.
-- `aicid-logo-green.pdf` - alternate icon matching the AICID web accent.
+- `aicid-logo-blue.pdf` - official blue icon for paper/PDF use.
 - `example.tex` - minimal example.
 - `logo-source/` - vector-only SVG sources used to regenerate the icon PDFs.
 
@@ -24,12 +23,6 @@ your local TeX tree.
 \usepackage{aicid}
 
 Poe Ledger\aicid{AICID-8852-3802-2226-1236}
-```
-
-The default icon is blue. Use the green icon with:
-
-```tex
-\usepackage[green]{aicid}
 ```
 
 ## Commands
@@ -73,7 +66,6 @@ SVG conversion tools. To regenerate them from the vector-only SVG sources:
 ```sh
 cd logo-source
 mutool convert -F pdf -o ../aicid-logo-blue.pdf aicid-logo-blue.svg
-mutool convert -F pdf -o ../aicid-logo-green.pdf aicid-logo-green.svg
 ```
 
 The source icons use vector paths only; there is no runtime font dependency.

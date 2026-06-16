@@ -9,7 +9,7 @@ The package is intentionally lightweight. At document build time it depends on
 ## Files
 
 - `aicid.sty` - LaTeX package.
-- `aicid-logo-blue.pdf` - official blue icon for paper/PDF use.
+- `aicid-logo.pdf` - official icon for paper/PDF use.
 - `example.tex` - minimal example.
 - `logo-source/` - vector-only SVG sources used to regenerate the icon PDFs.
 
@@ -65,7 +65,7 @@ SVG conversion tools. To regenerate them from the vector-only SVG sources:
 
 ```sh
 cd logo-source
-mutool convert -F pdf -o ../aicid-logo-blue.pdf aicid-logo-blue.svg
+mutool convert -F pdf -o ../aicid-logo.pdf aicid-logo.svg
 ```
 
 The source icons use vector paths only; there is no runtime font dependency.

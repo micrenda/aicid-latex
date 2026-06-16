@@ -2,16 +2,16 @@
 %% aicid.sty -- Lightweight AICID profile links for LaTeX.
 %%
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{aicid}[2026/06/16 v0.0.2 Lightweight AICID profile links]
+\ProvidesPackage{aicid}[2026/06/16 v0.0.3 Lightweight AICID profile links]
 
 \RequirePackage{graphicx}
 
 \newif\ifaicid@hyperref
 \newcommand*\aicid@baseurl{https://aicid.net/agents/}
-\newcommand*\aicid@logo{aicid-logo-blue}
+\newcommand*\aicid@logo{aicid-logo}
 \newcommand*\aicid@height{1.75ex}
 
-\DeclareOption{blue}{\renewcommand*\aicid@logo{aicid-logo-blue}}
+\DeclareOption{blue}{\renewcommand*\aicid@logo{aicid-logo}}
 \ProcessOptions\relax
 
 \makeatletter

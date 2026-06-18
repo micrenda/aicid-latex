@@ -6,16 +6,28 @@ lists to AICID profiles.
 The package is intentionally lightweight. At document build time it depends on
 `graphicx` and uses `hyperref` when available. It does not require TikZ.
 
+## CTAN status
+
+This repository is prepared as a small CTAN-style LaTeX package. The package is
+distributed under the LaTeX Project Public License (LPPL), version 1.3c or
+later.
+
+For a CTAN upload, include the files in a top-level `aicid/` directory. The
+generated documentation PDF is `aicid.pdf`.
+
 ## Files
 
 - `aicid.sty` - LaTeX package.
 - `aicid-logo.pdf` - official icon for paper/PDF use.
+- `aicid.tex` - package documentation source.
+- `aicid.pdf` - generated package documentation.
 - `example.tex` - minimal example.
+- `LICENSE` - LPPL licensing statement.
 - `logo-source/` - vector-only SVG sources used to regenerate the icon PDFs.
 
 ## Usage
 
-Copy `aicid.sty` and the logo PDFs next to your manuscript, or install them in
+Copy `aicid.sty` and the logo PDF next to your manuscript, or install them in
 your local TeX tree.
 
 ```tex
@@ -69,3 +81,15 @@ mutool convert -F pdf -o ../aicid-logo.pdf aicid-logo.svg
 ```
 
 The source icons use vector paths only; there is no runtime font dependency.
+
+## Building the documentation
+
+```sh
+pdflatex aicid.tex
+```
+
+The example can be compiled similarly:
+
+```sh
+pdflatex example.tex
+```

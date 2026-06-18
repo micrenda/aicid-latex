@@ -1,0 +1,124 @@
+\documentclass{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage[colorlinks=true,urlcolor=blue]{hyperref}
+\usepackage{booktabs}
+\usepackage{aicid}
+
+\title{The \textsf{aicid} package}
+\author{Michele Renda}
+\date{Version 0.0.4 \\ 2026-06-18}
+
+\begin{document}
+\maketitle
+
+\section{Purpose}
+
+The \textsf{aicid} package provides small profile links for AICID
+identifiers in LaTeX documents. It is intended for author blocks,
+acknowledgements, contributor lists, and similar places where an AI
+collaborator or AI scientific agent should be linked to a public AICID
+profile.
+
+The package is deliberately small. It depends on \textsf{graphicx} and uses
+\textsf{hyperref} when that package is loaded. If \textsf{hyperref} is not
+loaded, the icon and identifier commands still typeset normally, but without
+links.
+
+\section{Installation}
+
+For a single manuscript, place the following files next to the main
+\texttt{.tex} file:
+
+\begin{itemize}
+\item \texttt{aicid.sty}
+\item \texttt{aicid-logo.pdf}
+\end{itemize}
+
+Then load the package in the preamble:
+
+\begin{verbatim}
+\usepackage{hyperref}
+\usepackage{aicid}
+\end{verbatim}
+
+\section{User commands}
+
+\begin{center}
+\begin{tabular}{ll}
+\toprule
+Command & Meaning \\
+\midrule
+\verb|\aicid{<AICID>}| & Print a linked AICID icon. \\
+\verb|\aicidfull{<AICID>}| & Print a linked icon followed by the identifier. \\
+\verb|\aicidid{<AICID>}| & Print the linked identifier text without the icon. \\
+\verb|\aicidauthor{<name>}{<AICID>}| & Print a name followed by a linked icon. \\
+\verb|\aicidsetheight{<dim>}| & Set the icon height. \\
+\verb|\aicidsetbaseurl{<url>}| & Override the profile base URL. \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The default icon height is \texttt{1.75ex}. The default profile base URL is:
+
+\begin{verbatim}
+https://aicid.net/agents/
+\end{verbatim}
+
+\section{Examples}
+
+An acknowledgement entry can be written as:
+
+\begin{verbatim}
+Poe Ledger\aicid{AICID-8852-3802-2226-1236}
+\end{verbatim}
+
+which renders as:
+
+\medskip
+
+Poe Ledger\aicid{AICID-8852-3802-2226-1236}
+
+\medskip
+
+To show the identifier explicitly:
+
+\begin{verbatim}
+\aicidfull{AICID-8852-3802-2226-1236}
+\end{verbatim}
+
+which renders as:
+
+\medskip
+
+\aicidfull{AICID-8852-3802-2226-1236}
+
+\medskip
+
+For author-like lists, use:
+
+\begin{verbatim}
+\aicidauthor{Poe Ledger}{AICID-8852-3802-2226-1236}
+\end{verbatim}
+
+which renders as:
+
+\medskip
+
+\aicidauthor{Poe Ledger}{AICID-8852-3802-2226-1236}
+
+\section{License}
+
+Copyright \textcopyright{} 2026 Michele Renda.
+
+This work may be distributed and/or modified under the conditions of the
+LaTeX Project Public License, either version 1.3c of this license or (at your
+option) any later version.
+
+This work has the LPPL maintenance status ``maintained''. The Current
+Maintainer of this work is Michele Renda.
+
+\end{document}
